@@ -1,0 +1,15 @@
+query getUserProfile($username: String!) {
+    matchedUser(username: $username) {
+        username
+        githubUrl
+        twitterUrl
+        linkedinUrl
+        profile {
+            realName
+            userAvatar
+            ranking
+            countryName
+            school
+        }
+    }
+}

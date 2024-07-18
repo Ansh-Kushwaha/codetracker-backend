@@ -1,0 +1,8 @@
+query upcomingContests {
+    upcomingContests {
+        title
+        titleSlug
+        startTime
+        duration
+    }
+}

@@ -1,0 +1,10 @@
+query userProblemsSolved($username: String!) {
+    matchedUser(username: $username) {
+        submitStatsGlobal {
+            acSubmissionNum {
+                difficulty
+                count
+            }
+        }
+    }
+}

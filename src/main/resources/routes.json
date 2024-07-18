@@ -1,0 +1,10 @@
+{
+  "routes": {
+    "leetcode": {
+      "/leetcode/profile?user={username}": "get user profile",
+      "/leetcode/solved?user={username}": "get total number of questions solved by user",
+      "/leetcode/upcomingContests": "get details about upcoming contests",
+      "/leetcode/pastContests?user={username}": "get details about user's past contests and ratings"
+    }
+  }
+}
