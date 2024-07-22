@@ -11,5 +11,11 @@ query getUserProfile($username: String!) {
             countryName
             school
         }
+        submitStatsGlobal {
+            acSubmissionNum {
+                difficulty
+                count
+            }
+        }
     }
 }

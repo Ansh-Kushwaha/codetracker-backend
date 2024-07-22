@@ -2,13 +2,13 @@ package com.project.codetracker.model;
 
 import java.util.Map;
 
-public record LeetcodeParticipationDetails(
+public record LeetcodeContestDetails(
+        Map<String, Object> contest,
         Double rating,
         Long ranking,
-        String trendDirection,
         Integer problemsSolved,
         Integer totalProblems,
+        String trendDirection
 
-        Map<String, Object> contest
 ) {
 }

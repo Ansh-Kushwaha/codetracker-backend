@@ -1,10 +1,15 @@
 {
   "routes": {
+    "/all/upcomingContests": "get all upcoming contests",
     "leetcode": {
       "/leetcode/profile?user={username}": "get user profile",
-      "/leetcode/solved?user={username}": "get total number of questions solved by user",
       "/leetcode/upcomingContests": "get details about upcoming contests",
       "/leetcode/pastContests?user={username}": "get details about user's past contests and ratings"
+    },
+    "codechef": {
+      "/codechef/profile?user={username}": "get user profile",
+      "/codechef/upcomingContests": "get details about upcoming contests",
+      "/codechef/pastContests?user={username}": "get details about user's past contests and ratings"
     }
   }
 }

@@ -1,9 +1,9 @@
 package com.project.codetracker.controller;
 
+import com.project.codetracker.model.CodeChefPastContests;
+import com.project.codetracker.model.CodeChefProfile;
 import com.project.codetracker.model.Contest;
-import com.project.codetracker.model.LeetcodeProfile;
-import com.project.codetracker.model.LeetcodePastContests;
-import com.project.codetracker.service.LeetcodeService;
+import com.project.codetracker.service.CodeChefService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,29 +12,29 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/leetcode")
-public class LeetcodeController {
-    private final LeetcodeService leetcodeService;
+@RequestMapping("/codechef")
+public class CodeChefController {
+    private final CodeChefService codeChefService;
 
-    public LeetcodeController(LeetcodeService leetcodeService) {
-        this.leetcodeService = leetcodeService;
+    public CodeChefController(CodeChefService codeChefService) {
+        this.codeChefService = codeChefService;
     }
 
     @GetMapping("/profile")
-    public LeetcodeProfile getProfile(@RequestParam("user") String username) {
-        return leetcodeService.getProfile(username)
+    public CodeChefProfile getProfile(@RequestParam("user") String username) {
+        return codeChefService.getProfile(username)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
     }
 
     @GetMapping("/upcomingContests")
     public List<Contest> getUpcomingContests() {
-        return leetcodeService.getUpcomingContests()
+        return codeChefService.getUpcomingContests()
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Contest data not found"));
     }
 
     @GetMapping("pastContests")
-    public LeetcodePastContests getPastContests(@RequestParam("user") String username) {
-        return leetcodeService.getPastContests(username)
+    public CodeChefPastContests getPastContests(@RequestParam("user") String username) {
+        return codeChefService.getPastContests(username)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User contest data not found"));
     }
 }

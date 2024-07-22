@@ -3,13 +3,14 @@ package com.project.codetracker.model;
 
 import java.util.Map;
 
-public record Profile (
+public record LeetcodeProfile(
     String username,
     String name,
     String avatar,
-    Long Ranking,
+    Long ranking,
+    Map<String, Object> problemsSolved,
     String country,
     String school,
-    Map<String, String> links
+    Map<String, Object> links
 ) {
 }

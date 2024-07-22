@@ -1,12 +1,7 @@
 FROM eclipse-temurin:21.0.3_9-jdk
 LABEL authors="ANSH KUSHWAHA"
 
-WORKDIR /app
+ARG JAR_FILE=target/*.jar
+COPY ./target/CodeTracker-0.2.0.jar app.jar
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:go-offline
-
-COPY src ./src
-
-CMD ["./mvnw", "spring-boot:run"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
