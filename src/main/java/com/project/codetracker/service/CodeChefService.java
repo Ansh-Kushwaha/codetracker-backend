@@ -99,6 +99,7 @@ public class CodeChefService {
                 contestList.add(new Contest(id, title, startTime, duration));
             }
 
+            contestList.sort((a, b) -> (int) (a.startTime() - b.startTime()));
             return Optional.of(contestList);
         } catch (Exception e) {
             System.out.println("Error parsing upcoming contests: " + e);

@@ -1,15 +1,8 @@
 {
+  "platforms": ["leetcode", "codechef", "codeforces"],
   "routes": {
-    "/all/upcomingContests": "get all upcoming contests",
-    "leetcode": {
-      "/leetcode/profile?user={username}": "get user profile",
-      "/leetcode/upcomingContests": "get details about upcoming contests",
-      "/leetcode/pastContests?user={username}": "get details about user's past contests and ratings"
-    },
-    "codechef": {
-      "/codechef/profile?user={username}": "get user profile",
-      "/codechef/upcomingContests": "get details about upcoming contests",
-      "/codechef/pastContests?user={username}": "get details about user's past contests and ratings"
-    }
+    "/:platform/profile?user={username}": "get user profile",
+    "/:platform/upcomingContests": "get details about upcoming contests",
+    "/:platform/pastContests?user={username}": "get details about user's past contests and ratings"
   }
 }

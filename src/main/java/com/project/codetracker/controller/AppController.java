@@ -35,14 +35,4 @@ public class AppController {
         return appService.getRoutes()
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Routes not found"));
     }
-
-    @GetMapping("/all/upcomingContests")
-    public Map<String, List<Contest>> getUpcomingContests() {
-        List<Contest> codechefContests = codeChefService.getUpcomingContests()
-                .orElse(new ArrayList<>());
-        List<Contest> leetcodeContests = leetcodeService.getUpcomingContests()
-                .orElse(new ArrayList<>());
-
-        return Map.of("Codechef", codechefContests, "Leetcode", leetcodeContests);
-    }
 }

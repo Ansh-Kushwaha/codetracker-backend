@@ -19,7 +19,6 @@ public class LeetcodeService {
 
     @Value("${leetcode.api.url}")
     private String apiUrl;
-
     private final OkHttpClient client;
 
     public LeetcodeService() {
@@ -40,7 +39,6 @@ public class LeetcodeService {
         jsonObject.put("query", query);
         variables.put("username", username);
         jsonObject.put("variables", variables);
-
         Request request = getRequest(jsonObject);
 
         try (Response response = client.newCall(request).execute()) {
@@ -100,7 +98,6 @@ public class LeetcodeService {
         String query = loadQuery("getUpComingContests");
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("query", query);
-
         Request request = getRequest(jsonObject);
 
         try (Response response = client.newCall(request).execute()) {
@@ -130,6 +127,7 @@ public class LeetcodeService {
                 contestList.add(new Contest(id, title, startTime, duration));
             }
 
+            contestList.sort((a, b) -> (int) (a.startTime() - b.startTime()));
             return Optional.of(contestList);
         } catch (Exception e) {
             System.err.println("Error parsing upcoming contests: " + e);
@@ -151,7 +149,6 @@ public class LeetcodeService {
         jsonObject.put("query", query);
         variables.put("username", username);
         jsonObject.put("variables", variables);
-
         Request request = getRequest(jsonObject);
 
         try (Response response = client.newCall(request).execute()) {
